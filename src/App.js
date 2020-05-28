@@ -1,24 +1,27 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './components/Header';
+import Cart from './pages/Cart';
+import Photos from './pages/Photos';
+
+const App = () => {    
+    return (
+        <div>
+            <Header />
+
+            <Switch>
+              <Route exact path='/'>
+                <Photos />
+              </Route>
+              <Route exact path='/cart'>
+                <Cart />
+              </Route>
+            </Switch>
+        </div>
+    );
 }
 
 export default App;
